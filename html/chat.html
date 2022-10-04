@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/bug_animacao.css">
+    <link rel="stylesheet" href="./css/style_chat_inputs.css">
+    <link rel="stylesheet" href="./css/style_chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!--JS-->
+    <script src="./js/bug_animacao.js"></script>
+    <script defer type="module" src="./js/script_chat_geral.js"></script>
+    <script defer src="/socket.io/socket.io.js"></script>
+</head>
+<body class="preload">
+    <section class="input_nome">
+        <div class="form">
+            <div class="input">
+                <input type="text" name="nome" required autocomplete="off" id="nome_usuario">
+                <span>Nome</span>
+            </div>
+            <div class="sexo">
+                <h3>Sexo</h3>
+                <div class="escolhas">
+                    <div>
+                        <label for="M">Masculino</label>
+                        <input type="radio" name="sexo" id="M" value="masculino">
+                    </div>
+                    <div>
+                        <label for="F">Feminino</label>
+                        <input type="radio" name="sexo" id="F" value="feminino">
+                    </div>
+                    <div>
+                        <label for="O">Outro</label>
+                        <input type="radio" name="sexo" id="O" value="outro">
+                    </div>
+                </div>
+            </div>
+            <button id="login"><span>Entrar no Chat</span></button>
+        </div>
+        <div class="container_tr">
+            <div class="transition">
+                <div class="vert" style="--i: 0ms"></div>
+                <div class="vert"  style="--i: 90ms"></div>
+                <div class="vert"  style="--i: 180ms"></div>
+                <div class="vert last"  style="--i: 270ms"></div>
+                <div style="--i: 0ms"></div>
+                <div style="--i: 90ms"></div>
+                <div style="--i: 180ms"></div>
+                <div style="--i: 270ms" class="last"></div>
+            </div>
+        </div>
+    </section>
+    <section class="chat">
+        <div class="contatos">
+            <span class="btn_fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+            <button id="geral">
+                <i class="fa-solid fa-users"></i>
+                Geral
+            </button>
+            <div class="stroke"></div>
+            <div class="lista">
+            </div>
+            <div class="sair">
+                <a href="/">Sair</a>
+            </div>
+        </div>
+        <div class="conversa">
+            <div class="nome_contato">
+                <div class="info_contato">
+                </div>
+                <div class="menu_icone">
+                    <div class="icone_menu"></div>
+                    <div class="icone_menu"></div>
+                    <div class="icone_menu"></div>
+                </div>
+            </div>
+            <div class="chat_msg">
+                <section>
+                    <h3>Bem Vindo !</h3>
+                    <h4>Por Favor Selecione um Chat</h4>
+                </section>
+            </div>
+            <div class="input_msg">
+                <div class="user_digi"></div>
+                <input type="text" name="mensagem" id="mensagem" placeholder="Digite sua mensagem">
+                <div class="stroke"></div>
+                <button id="enviar_btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

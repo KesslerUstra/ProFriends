@@ -1,0 +1,338 @@
+body{
+    background-color: var(--cor_02);
+}
+
+/*Logo*/
+
+.logo{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-image: url("../img/fundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo #logo_anima{
+    max-width: 600px;
+    max-height: 80%;
+    display: block;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+    text-align: center;
+    opacity: 1;
+}
+
+.logo a{
+    outline: none;
+    padding: 15px;
+    color: var(--cor_02);
+    font-weight: 600
+    ;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.logo a::before, .logo a::after{
+    content: '';
+    transition: 300ms ease-out;
+    height: 3px;
+    border-radius: 20px;
+    position: absolute;
+    width: 20%;
+    background-color: var(--cor_02);
+}
+
+.logo a:hover::before, .logo a:hover::after, .logo a:focus::before, .logo a:focus::after{
+    width: 65%;
+}
+
+.logo a::before{
+    top: 0;
+    left: 0;
+}
+
+.logo a:hover::before, .logo a:focus::before{
+    left: 5px;
+}
+
+.logo a::after{
+    transition-delay: 20ms;
+    bottom: 0;
+    right: 0;
+}
+
+.logo a:hover::after, .logo a:focus::after{
+    right: 5px;
+}
+
+/*Sobre*/
+
+.sobre{
+    padding: 30px 15px;
+    min-height: 95vh;
+}
+
+.sobre h2{
+    text-align: center;
+    color: var(--cor_03);
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+}
+
+.sobre > .desc{
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+    justify-items: end;
+    align-items: center;
+    gap: 30px;
+}
+
+.sobre .desc p{
+    text-indent: 1.2rem;
+    text-align: justify;
+    line-height: 1.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--cor_04);
+    max-width: 450px;
+    width: 60%;
+}
+
+.sobre .stroke{
+    height: 70%;
+    width: 2px;
+    background-color: rgba(51, 51, 51, 0.25);
+}
+
+.sobre .anima{
+    max-width: 400px;
+    justify-self: start;
+}
+
+/*Pacotes sobre*/
+
+h3{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--cor_03);
+    font-size: 2.1rem;
+    z-index: 2;
+}
+
+h3 > span{
+    position: relative;
+    z-index: 2;
+    background-color: var(--cor_02);
+    padding: 0px 15px;
+}
+
+h3::before{
+    z-index: 1;
+    top: 50%;
+    position: absolute;
+    max-width: 400px;
+    content: '';
+    height: 2px;
+    width: 75%;
+    background-color: rgba(51, 51, 51, 0.25);
+}
+
+.pacotes{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    padding: 50px 20px;
+    gap: 35px;
+}
+
+.pacotes .pac{
+    display: flex;
+    flex-direction: column  ;
+    font-weight: 600;
+    width: 225px;
+}
+
+.pac h4{
+    color: var(--cor_04);
+    font-size: 1.3rem;
+    text-align: center;
+    min-height: 42px;
+    margin-bottom: 12px;
+}
+
+.pac .valor{
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--cor_01);
+}
+
+.pac > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px;
+    margin-bottom: 15px;
+}
+
+.pac > div p{
+    color: var(--cor_04);
+    font-size: 15px;
+}
+
+.pac > div i{
+    background-color: var(--cor_01);
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+}
+
+.pac > div:last-of-type{
+    margin-bottom: 60px;
+}
+
+.pac button{
+    outline: none;
+    cursor: pointer;
+    background: none;
+    justify-self: flex-end;
+    text-align: center;
+    display: block;
+    margin: 0;
+    margin-top: auto;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--cor_01);
+    border: none;
+}
+
+.pac button:focus{
+    text-decoration: underline;
+}
+
+/*Investidores*/
+
+.investidores{
+    padding: 30px 15px;
+    background-color: var(--cor_01);
+}
+
+.investidores h2{
+    text-align: center;
+    font-weight: 600;
+    color: var(--cor_02);
+    font-size: 2.1rem;
+}
+
+.investidores h2:last-of-type{
+    margin-top: 80px;
+}
+
+.investidores > div{
+    margin: 45px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.investidores img{
+    cursor: pointer;
+    max-width: 200px;
+    will-change: transform;
+    transition: transform 200ms ease-out;
+}
+
+.investidores img:hover{
+    transform: scale(1.1);
+}
+
+.investidores .premios img{
+    max-width: 120px;
+}
+
+/*Footer*/
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 70px 10px 20px;
+    background-color: var(--cor_01);
+    gap: 20px;
+}
+
+footer > *{
+    flex: 1;
+}
+
+footer > div{
+    min-width: 150px;
+    color: var(--cor_02);
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+footer span{
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+footer i{
+    margin: 0px 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+footer p{
+    font-size: 0.8rem;
+}
+
+/*Media Queries*/
+
+@media (max-width: 750px) {
+
+    .sobre > .desc{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto 2px auto;
+        justify-items: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .sobre .desc p{
+        width: 75%;
+    }
+
+    .sobre .stroke{
+        opacity: 0;
+    }
+
+    .sobre .anima{
+        justify-self: center;
+    }
+
+    .pacotes .pac:nth-child(3){
+        order: -2;
+    }
+
+    .pacotes .pac:nth-child(2){
+        order: -1;
+    }
+}

@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
+/*Layout do Chat*/
+
+section.chat{
+    padding: 30px 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    z-index: 5;
+    grid-template-columns: 250px 1fr;
+    height: 100%;
+}
+
+/*Contatos*/
+
+.chat .contatos{
+    overflow: hidden;
+    height: fit-content;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: auto 2px 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    border-radius: 5px;
+    background-color: var(--cor_02);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.chat .contatos .btn_fechar{
+    display: none;
+    font-weight: bold;
+    color: var(--cor_01);
+    position: absolute;
+    z-index: 15;
+    top: 0;
+    cursor: pointer;
+    padding: 10px;
+    right: 0;
+}
+
+.chat .contatos button{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: var(--cor_03);
+    padding: 15px 0px;
+    cursor: pointer;
+    align-items: center;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chat .contatos button i{
+    transition: all 150ms linear;
+    color: var(--cor_04);
+    font-size: 1.6rem;
+}
+
+.chat .contatos button:hover i{
+    transform: scale(1.15);
+    color: var(--cor_03);
+}
+
+.chat .contatos .stroke{
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.25);
+}
+
+/*Contatos Lista*/
+
+.chat .contatos .lista{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    max-height: 400px;
+    min-height: 250px;
+    overflow-y: auto;
+}
+
+.chat .contatos .lista > div{
+    flex-basis: 0;
+    max-width: 250px;
+    display: flex;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 20px 8px 20px 18px;
+    color: var(--cor_04);
+    transition: 150ms linear;
+}
+
+.chat .contatos .lista > div:hover{
+    color: var(--cor_03);
+    padding-left: 25px;
+}
+
+.masculino{
+    --cor_principal: #1e89e6;
+    --cor_secundaria: hwb(208 45% 10%);
+}
+
+.feminino{
+    --cor_principal: #ee81bd;
+    --cor_secundaria: #F2A7D0;
+}
+
+.chat .contatos .lista i{
+    position: relative;
+    transition: 150ms linear;
+    font-size: 1.4rem;
+    color: var(--cor_secundaria);
+}
+
+.chat .contatos .lista > div:hover i{
+    color: var(--cor_principal);
+}
+
+.chat .contatos .lista span{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: hidden;
+    flex: 1;
+    font-size: 1.1rem;
+    margin-left: 6px;
+    font-weight: 600;
+}
+
+.chat .contatos .lista .noti{
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    font-size: 0.7rem;
+    width: 21px;
+    height: 21px;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: var(--cor_01);
+    color: var(--cor_02);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    overflow: hidden;
+}
+
+.chat .contatos .lista .noti.ativo{
+    display: flex;
+}
+
+.chat .contatos .sair{
+    display: flex;
+}
+
+.chat .contatos .sair a{
+    flex: 1;
+    text-transform: uppercase;
+    display: block;
+    color: var(--cor_03);
+    padding: 20px 0px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    background-color: transparent;
+    transition: 200ms linear;
+}
+
+.chat .contatos .sair a:hover{
+    background-color: rgba(255, 50, 67, 0.2);
+    color: #c00010;
+}
+
+/*Chat Conversa Layout*/
+
+.chat .conversa {
+    height: 90vh;
+    display: grid;
+    overflow: auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    border-radius: 5px;
+    background-color: var(--cor_02);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+/*Chat Conversa Nome Contato*/
+
+.chat .conversa .nome_contato{
+    min-height: 66px;
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--cor_04);
+    justify-content: start;
+    padding: 20px 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    z-index: 2;
+}
+
+.conversa .nome_contato .info_contato{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.chat .conversa .nome_contato i{
+    font-size: 1.6rem;
+    color: var(--cor_principal);
+}
+
+.chat .conversa .nome_contato h3{
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 50vw;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+/*Chat Conversa Chat Mensagens*/
+
+.chat .conversa .chat_msg{
+    z-index: 1;
+    background-color: #f8f4e9;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    padding-bottom: 25px;
+    gap: 15px;
+}
+
+.chat .conversa .chat_msg section{
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px   ;
+}
+
+.chat .conversa .chat_msg section h3{
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--cor_03);
+    letter-spacing: 2px;
+}
+
+.chat .conversa .chat_msg section h4{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cor_04);
+}
+
+.chat .conversa .chat_msg > div{
+    position: relative;
+    max-width: 50%;
+    width: fit-content;
+    border: 2px solid var(--cor_03);
+    background-color: var(--cor_02);
+    margin: 15px 0px 15px 20px;
+    padding: 15px;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.chat .conversa .chat_msg > div::before{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--cor_03);
+    border: 2px solid var(--cor_03);
+    bottom: -8px;
+    transform: rotate(45deg);
+    transition: 0.4s;
+    left: 8px;
+}
+
+.chat .conversa .chat_msg > div p{
+    color: var(--cor_03);
+    font-size: 1rem;
+    font-weight: 600;
+    word-break: break-all;
+    line-height: 1.2rem;
+}
+
+.chat .conversa .chat_msg > div span{
+    user-select: none;
+    overflow-x: hidden;
+    font-weight: 600;
+    white-space: nowrap;
+    max-width: 150px;
+    color: var(--cor_04);
+    font-size: 0.8rem;
+    right: 5px;
+    bottom: -20px;
+}
+
+.chat .conversa .chat_msg > div.ps::before{
+    left: calc(100% - 30px);
+    background-color: #0b67c2;
+    border: 2px solid #0b67c2;
+}
+
+.chat .conversa .chat_msg > div.ps{
+    align-self: flex-end;
+    border: 2px solid #1089ff;
+    background-color: #1089ff;
+}
+
+.chat .conversa .chat_msg > div.ps p{
+    color: var(--cor_02);
+}
+
+.chat .conversa .chat_msg > div.ps span{
+    right: 0;
+    left: 5px;
+}
+
+/*Chat Conversa Chat Input*/
+
+.chat .conversa .input_msg{
+    position: relative;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px -1.95px 2.6px;
+    display: flex;
+    align-items: center;
+}
+
+.chat .conversa .input_msg .user_digi{
+    position: absolute;
+    display: none;
+    top: -20px;
+    left: 15px;
+    font-size: 0.9rem;
+    color: var(--cor_04);
+}
+
+.chat .conversa .input_msg .user_digi.ativo{
+    display: block;
+}
+
+.chat .conversa .input_msg input{
+    padding: 25px 15px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    width: 80%;
+    color: var(--cor_03);
+    min-width: 200px;
+}
+
+.chat .conversa .input_msg .stroke{
+    margin-left: auto;
+    width: 2px;
+    background-color: rgba(51, 51, 51, 0.25);
+    height: 60%;
+}
+
+.chat .conversa .input_msg button{
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cor_04);
+    height: 100%;
+    padding: 0px 35px;
+}
+
+/*Mobile*/
+
+.menu_icone{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 5;
+    margin-left: auto;
+}
+
+.menu_icone .icone_menu{
+    height: 2px;
+    width: 18px;
+    background-color: var(--cor_04);
+    position: absolute;
+    border-radius: 20px;
+}
+
+.menu_icone .icone_menu:nth-child(1){
+    transform: translateY(-6px);
+}
+
+.menu_icone .icone_menu:nth-child(3){
+    transform: translateY(6px);
+}
+
+
+/*Media Queries*/
+
+@media (max-width: 800px) {
+
+    section.chat{
+        grid-template-columns: 1fr;
+    }
+
+    .chat .contatos .btn_fechar{
+        display: block;
+    }
+
+    .chat .contatos{
+        width: 80%;
+        max-width: 260px;
+        border-radius: 0px;
+        transform: translateX(100%);
+        right: -100%;
+        top: 0;
+        height: 100%;
+        z-index: 10;
+        transition: 500ms ease-out;
+        position: fixed;
+    }
+
+    .chat .contatos.ativo{
+        right: 0%;
+        transition: 300ms ease-out;
+        transform: translateX(0%);
+    }
+
+    .menu_icone{
+        display: flex;
+    }
+
+    .chat .conversa .chat_msg > div{
+        max-width: 75%;
+    }
+
+}
+
+/*ScrollBar Chat*/
+
+.chat .conversa .chat_msg::-webkit-scrollbar{
+    width: 4px;
+}
+
+.chat .conversa .chat_msg::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.chat .conversa .chat_msg::-webkit-scrollbar-thumb {
+    background-color: var(--cor_03);
+}

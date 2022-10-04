@@ -1,0 +1,232 @@
+body{
+    background-image: url("../img/fundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*Inputs e Buttons*/
+
+section.input_nome{
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.input_nome .form{
+    will-change: opacity, transform;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    transition: all 300ms ease-out;
+}
+
+section.input_nome.ativo .form{
+    opacity: 0;
+    transform: translateY(-70px);
+}
+
+section.input_nome .input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+section.input_nome .input input{
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    outline: none;
+    padding: 6px 12px;
+    font-size: 1.1rem;
+    color: var(--cor_05);
+    width: 60vw;
+    max-width: 220px;
+    min-width: 180px;
+    border: 0px solid transparent;
+    border-bottom: 2px solid var(--cor_02);
+}
+
+section.input_nome .input span{
+    font-size: 1.2rem;
+    padding: 2px 10px;
+    z-index: 1;
+    left: 10px;
+    font-weight: 600;
+    position: absolute;
+    transition: 0.2s cubic-bezier(0.0, 0, 0.2, 1);
+    color: var(--cor_02);
+}
+
+section.input_nome .input input:focus ~ span, section.input_nome .input input:valid ~ span{
+    font-size: 0.9rem;
+    transform: translate(-8px, -20px);
+}
+
+section.input_nome .sexo{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+section.input_nome .sexo h3{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cor_02);
+}
+
+section.input_nome .sexo .escolhas{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+section.input_nome .sexo .escolhas > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.sexo .escolhas > div label{
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cor_02);
+}
+
+.sexo .escolhas > div input{
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--cor_02);
+    border-radius: 50%;
+}
+
+.sexo .escolhas > div input::before{
+    will-change: opacity;
+    transition: opacity 150ms linear;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--cor_02);
+}
+
+.sexo .escolhas > div input:checked::before{
+    opacity: 1;
+}
+
+section.input_nome button{
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    background-image: linear-gradient(135deg, #ee1d2e 40%, #D91A2A);
+    border: 0;
+    border-radius: 10px;
+    color: var(--cor_02);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 54px;
+    justify-content: center;
+    letter-spacing: .4px;
+    line-height: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    text-transform: uppercase;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    outline: none;
+}
+
+section.input_nome button span {
+  transition: all 200ms;
+}
+
+section.input_nome button:hover span {
+  transform: scale(.9);
+  opacity: .75;
+}
+
+/*Transition*/
+
+.container_tr{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.transition{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: absolute;
+    transform: translateY(-100%);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.transition div{
+    z-index: 100;
+    will-change: transform;
+    transition: all 1s cubic-bezier(.34,0,.37,1);
+    transform: translateY(100%) scaleX(1.02);
+    position: relative;
+    background-color: var(--cor_01);
+    transition-delay: calc(0.2s + var(--i));
+}
+
+.transition .vert{
+    display: none;
+}
+
+section.input_nome.ativo .transition div{
+    transform: translateY(0) scaleX(calc(1.02));
+}
+
+/*Media Queries*/
+
+@media (max-width: 650px) {
+    .transition{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4, 1fr);
+        transform: translateX(-100%);
+    }
+
+    .transition div{
+        display: none;
+    }
+
+    section.input_nome.ativo .transition div{
+        transform: translateX(0) scaleY(calc(1.02));
+    }
+
+    .transition .vert{
+        display: block;
+        transform: translateX(100%) scaleY(1.02);
+    }
+}
